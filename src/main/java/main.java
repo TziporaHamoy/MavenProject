@@ -67,6 +67,7 @@ public class main {
             FileWriter writer = new FileWriter("results.txt");
             for(double str: convertHistory) {
                 writer.write(str + System.lineSeparator());
+
             }
             writer.close();
             break;
