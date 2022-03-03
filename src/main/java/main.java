@@ -53,7 +53,7 @@ public class main {
             e.printStackTrace();
             System.out.println("Invalid input enter only 1/2");
         }
-            while (a==true){
+           // while (a==true){
         //Start over or exit
         System.out.println("Do you want to start over? enter y/n");
         Scanner yn= new Scanner(System.in);
@@ -67,10 +67,10 @@ public class main {
             System.out.println(" Invalid input please enter only y/n");
         }
             if (answer.equalsIgnoreCase("y")){
-            b=true;
+           b =true;
         }else if (answer.equalsIgnoreCase("n")) {
                 b = false;
-                a = false;
+               // a = false;
 
                 //End screen
                 System.out.println("Thanks for using our currency converter");
@@ -90,4 +90,4 @@ public class main {
         }
         }
       }
-    }
+//    }
