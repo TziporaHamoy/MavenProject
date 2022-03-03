@@ -65,7 +65,7 @@ public class main {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(" Invalid input please enter only Y/N");
+            System.out.println(" Invalid input please enter only y/n");
         }
             if (answer.equalsIgnoreCase("y")){
             b=true;
