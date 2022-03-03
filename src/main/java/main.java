@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) throws IOException {
-        boolean b=true;
+        boolean b;
         int i=0;
         ArrayList<Double> convertHistory= new ArrayList<Double>();
 
@@ -22,7 +22,7 @@ public class main {
             Scanner s=new Scanner(System.in);
             int option=s.nextInt();
             if (option!=1 & option!=2){
-                throw new Exception("Invalid input");
+                throw new Exception("Invalid input enter only 1/2");
             }
             //input amount screen
         System.out.println("Please enter an amount to convert");
@@ -49,13 +49,21 @@ public class main {
         }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Invalid input");
+            System.out.println("Invalid input enter only 1/2");
         }
         //Start over or exit
         System.out.println("Do you want to start over? enter y/n");
         Scanner yn= new Scanner(System.in);
         String answer= yn.next();
-        if (answer.equalsIgnoreCase("y")){
+        try {
+            if (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")){
+                throw new Exception("invalid input");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("please enter only Y/N");
+        }
+            if (answer.equalsIgnoreCase("y")){
             b=true;
             i++;
         }else if (answer.equalsIgnoreCase("n")){
