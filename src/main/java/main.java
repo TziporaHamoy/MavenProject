@@ -10,13 +10,13 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) throws IOException {
-        boolean b;
-        int i=0;
+        boolean b =true;
+        boolean a=true;
         ArrayList<Double> convertHistory= new ArrayList<Double>();
 
         //Welcome screen
         System.out.println("Welcome to currency converter");
-        while (b=true){
+        while (b == true){
         System.out.println("Please choose an option (1/2)");
         System.out.println("1.Dollars to Shekels");
         System.out.println("2.Shekels to Dollars");
@@ -29,8 +29,8 @@ public class main {
             }
             //input amount screen
         System.out.println("Please enter an amount to convert");
-        Scanner scan = new Scanner(System.in);
-        double input = scan.nextDouble();
+            Scanner scan = new Scanner(System.in);
+            double input = scan.nextDouble();
 
         //Convert shekel to dollar
         if (option==1) {
@@ -54,6 +54,7 @@ public class main {
             e.printStackTrace();
             System.out.println("Invalid input enter only 1/2");
         }
+            while (a==true){
         //Start over or exit
         System.out.println("Do you want to start over? enter y/n");
         Scanner yn= new Scanner(System.in);
@@ -68,22 +69,24 @@ public class main {
         }
             if (answer.equalsIgnoreCase("y")){
             b=true;
-            i++;
-        }else if (answer.equalsIgnoreCase("n")){
-            b=false;
-            //End screen
-            System.out.println("Thanks for using our currency converter");
-            System.out.println("Your conversion history: "+convertHistory);
+        }else if (answer.equalsIgnoreCase("n")) {
+                b = false;
+                a = false;
 
-            //write result in file
-                Date date =new Date();
-                SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-             FileWriter writer = new FileWriter(dateFormat.format(date)+"results.txt");
-            for(double str: convertHistory) {
-                writer.write(str + System.lineSeparator());
+                //End screen
+                System.out.println("Thanks for using our currency converter");
+                System.out.println("Your conversion history: " + convertHistory);
+
+                //write result in file
+                Date date = new Date();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+                FileWriter writer = new FileWriter(dateFormat.format(date) + "results.txt");
+                for (double str : convertHistory) {
+                    writer.write(str + System.lineSeparator());
+                }
+                writer.close();
+                break;
             }
-            writer.close();
-            break;
 
         }
         }
