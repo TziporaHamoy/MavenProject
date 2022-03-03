@@ -1,8 +1,11 @@
+import javax.xml.crypto.Data;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class main {
@@ -61,7 +64,7 @@ public class main {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("please enter only Y/N");
+            System.out.println(" Invalid input please enter only Y/N");
         }
             if (answer.equalsIgnoreCase("y")){
             b=true;
@@ -71,11 +74,13 @@ public class main {
             //End screen
             System.out.println("Thanks for using our currency converter");
             System.out.println("Your conversion history: "+convertHistory);
+
             //write result in file
-            FileWriter writer = new FileWriter("results.txt");
+                Date date =new Date();
+                SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+             FileWriter writer = new FileWriter(dateFormat.format(date)+"results.txt");
             for(double str: convertHistory) {
                 writer.write(str + System.lineSeparator());
-
             }
             writer.close();
             break;
