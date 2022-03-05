@@ -31,22 +31,21 @@ public class main {
         System.out.println("Please enter an amount to convert");
             Scanner scan = new Scanner(System.in);
             double input = scan.nextDouble();
-
-        //Convert shekel to dollar
+            //Convert shekel to dollar
         if (option==1) {
+            Coin usdValue = CoinFactory.getCoinInstance(Coins.USD);
+            USD usd = new USD();
+            double value = usd.calculate(input);
+            System.out.println("The result is:"+value+" shekel");
+            convertHistory.add(value);
+        }
+        //Convert dollar to shekel
+        else if (option==2){
             Coin ilsValue = CoinFactory.getCoinInstance(Coins.ILS);
             ILS ils = new ILS();
             double value = ils.calculate(input);
             //Result screen
-            System.out.println("The result is:"+value+" dollars");
-            convertHistory.add(value);
-        }
-        //convert dollar to shekel
-        else if (option==2){
-           Coin usdValue = CoinFactory.getCoinInstance(Coins.USD);
-            USD usd = new USD();
-            double value = usd.calculate(input);
-            System.out.println("The result is:"+value+" shekel");
+            System.out.println("The result is:"+value+" dollar");
             convertHistory.add(value);
         }
         } catch (Exception e) {
